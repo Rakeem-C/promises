@@ -18,13 +18,13 @@ export const promiseArr = [promise1, promise2, promise3, promise4];
  * The developer used a wrong multiple promises method of .any() to get the value
  * of the first rejected promise in the promiseArr array.
  * Please, refactor the code to use a proper method. You can use on of these:
- * * .all()
+ * * .all()X
  * * .any()
  * * .allSettled()
  */
 
 // Your code goes here...
-export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
+export const handlePromise1 = Promise.all(promiseArr).catch((e) => e);
 
 /**
  * @task
@@ -32,7 +32,7 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  * * Takes an array of promises as an argument
  * * Returns a Promise that handles the array of promises (the argument) with one of the following methods:
  * * * .all()
- * * * .any()
+ * * * .any()X
  * * * .allSettled()
  * * to return the resolved value of promise3 if the promiseArr array was passed as the argument
  * * Don't forget to set the handlers that will return the resolved value or the rejection reason
@@ -41,6 +41,14 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  */
 
 // Your code goes here...
+export const handlePromise2 = (arr) => {
+  return  Promise
+  .any(arr);
+
+
+
+
+}
 
 /**
  * @task
@@ -49,7 +57,7 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  * * Returns a Promise that handles the array of promises (the argument) with one of the following methods:
  * * * .all()
  * * * .any()
- * * * .allSettled()
+ * * * .allSettled()X
  * * to return an array of all promises statuses and values/reasons if the promiseArr array was passed as the argument
  * * Don't forget to set the handlers that will return the resolved value or the rejection reason
  * * Make sure you don't use this method in other tasks of this exercise file!
@@ -58,6 +66,11 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
 
 // Your code goes here...
 
+export const handlePromise3 = (arr) => {
+    return Promise
+           .allSettled(arr);  
+            
+}
 /**
  * @task
  * Update the filter method callback to filter out any promise that will be settled before promise4
@@ -66,7 +79,10 @@ export const handlePromise1 = Promise.any(promiseArr).catch((e) => e);
  * The value of newPromiseArr MUST have more than one promise in the array!
  */
 
-export const newPromiseArr = promiseArr.filter(/* <Your code goes here>*/);
+export const newPromiseArr = promiseArr.filter(promise => 
+  promise === promise1 || promise === promise4
+);
+
 
 // Do NOT refactor or update handlePromise4 function, it's all set to work
 export const handlePromise4 = (arr) => {

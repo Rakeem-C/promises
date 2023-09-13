@@ -14,8 +14,14 @@
  * * getPromise(num) function must be exported
  * Example: export const getPromise(num) => return <Your code of promise>
  */
-export const getPromise = () => {
-  // Your code goes here...
+export const getPromise = (num) => {
+  if(num%1 === 0) {
+    return new Promise((resolve) => {
+    resolve(num);
+    }); 
+  }else {
+    return 0;
+    }// Your code goes here...
 };
 
 /**
@@ -24,12 +30,23 @@ export const getPromise = () => {
  * * Has a name of 'updateSumValue'
  * * Takes no arguments
  * * Has a local variable with name of 'sum' and value of 2
- * * resolves the getPromise function with an argument of 120, then adds the promise value to the sum variable
+ * * resolves the getPromise function with an argument of 120, then asynchronously adds the promise value to the sum variable
  * * Synchronously adds 8 to the sum variable
  * * Returns the sum value
  * * if you have solved it successfully, the updateSumValue() function will return the value of 10;
  */
 export const updateSumValue = () => {
+  let sum = 2;
+  getPromise(120);
+  sum += 8;
+  new Promise((resolve) => {
+    getPromise(120).then(value => {
+      sum += value;  
+
+      resolve(sum);
+    });
+  });
+  return sum;
   // Your code goes here...
 };
 

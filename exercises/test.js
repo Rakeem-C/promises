@@ -4,3 +4,4 @@
  * to be able to run the functions successfully with
  * ```node exercises/test.js```
  */
+console.log('hello world');
