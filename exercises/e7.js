@@ -21,17 +21,13 @@
 
 export function parsePromised(json_string) {
   // Your code goes here...
-  return new Promise ((resolve, reject) => {
-   try {
-       const parsedData = JSON.parse(json_string);
-        resolve(parsedData);
-   } catch (error) {
-       reject(error);
-   }
-
-  }
-  
-  );
+  return new Promise((resolve, reject) => {
+    try {
+      resolve(JSON.parse(json_string));
+    } catch (error) {
+      reject(error);
+    }
+  });
 }
 /**
  * @task
@@ -60,19 +56,16 @@ export function onReject(error) {
 export const handlePromise = (promise) => {
   // Your code goes here...
   return promise
-  .then(value => {
-  return value;
-})
-  .catch (reason => {
-    if(reason.message){
-      onReject(reason);
-    } 
-      else {
+    .then((value) => {
+      return value;
+    })
+    .catch((reason) => {
+      if (reason.message) {
+        return onReject(reason);
+      } else {
         return reason;
       }
-    
-});
-
+    });
 };
 
 // === TEST YOURSELF ===

@@ -30,7 +30,7 @@ fetch(usersUrl);
 */
 
 const getLoginList = (data) => {
-  return data.map(item => item.login);
+  return data.map((item) => item.login);
 }
 
 /**
@@ -41,7 +41,7 @@ const getLoginList = (data) => {
 */
 
 // Your code goes here ...
-const getData = fetch(usersUrl).then(response => response.json());
+const getData = fetch(usersUrl);
 
 
 /**
@@ -57,6 +57,7 @@ const getData = fetch(usersUrl).then(response => response.json());
 
 // Your code goes here ...
 export const result = getData
+    .then((res) => res.json())
     .then(data => { 
         return getLoginList(data); 
     })

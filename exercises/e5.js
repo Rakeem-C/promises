@@ -9,7 +9,7 @@
  */
 
 export const attachTitle = (lastName) => {
-    return 'DR. ' + lastName;
+  return "DR. " + lastName;
 };
 
 /**
@@ -21,15 +21,13 @@ export const attachTitle = (lastName) => {
  */
 
 export const getPromise = () => {
-  return Promise.resolve('MANHATTAN')
+    return Promise.resolve("MANHATTAN")
         .then(attachTitle)
-        .then(result => {
+        .then((result) => {
             console.log(result);
-           return result;
-        });  
-        
+            return result;
+    });
 };
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-5"

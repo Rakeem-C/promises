@@ -15,13 +15,13 @@
  * Example: export const getPromise(num) => return <Your code of promise>
  */
 export const getPromise = (num) => {
-  if(num%1 === 0) {
+  if (num % 1 === 0) {
     return new Promise((resolve) => {
-    resolve(num);
-    }); 
-  }else {
+      resolve(num);
+    });
+  } else {
     return 0;
-    }// Your code goes here...
+  } // Your code goes here...
 };
 
 /**
@@ -37,15 +37,8 @@ export const getPromise = (num) => {
  */
 export const updateSumValue = () => {
   let sum = 2;
-  getPromise(120);
+  getPromise(120).then((value) => (sum += value));
   sum += 8;
-  new Promise((resolve) => {
-    getPromise(120).then(value => {
-      sum += value;  
-
-      resolve(sum);
-    });
-  });
   return sum;
   // Your code goes here...
 };

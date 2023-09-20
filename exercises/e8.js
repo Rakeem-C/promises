@@ -7,7 +7,8 @@
 
 // === RESOLVED PROMISE
 // Update the promiseResolved variable to use the shortcut syntax
-export const promiseResolved = Promise.resolve('The PROMISE was RESOLVED');
+export const promiseResolved = Promise.resolve('The PROMISE was RESOLVED')
+.then((value) => value);
 
 
 
